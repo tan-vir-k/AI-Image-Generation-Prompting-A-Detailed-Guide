@@ -118,3 +118,100 @@ Modern advertising utilizes AI to enhance creative strategy, following framework
 3. Connect: Engage the viewer through emotion and storytelling. Watchtime consistently correlates with an increase in brand awareness and consideration. Humor and suspense are associated with higher ad recall.
 4. Direct: Clearly state the desired action. Clear calls to action (CTAs) drive brand lift. Utilize interactive features like CTA overlays.
 The effective use of AI in advertising enhances creativity by grounding it in data, ensuring cultural nuances and localized messaging are captured effectively, which leads to improved regional resonance and efficiency gains.
+
+AI Image Generation Prompting: Detailed Direction
+1. Comprehensive Prompt Engineering Guide – Best Practices
+The fundamental goal of prompt engineering is to reduce ambiguity and align the AI's output exactly with the user's vision, saving time and reducing revision cycles.
+Best Practice
+Detailed Direction
+Source
+Be Highly Specific (Avoid Vague Prompts)
+Lack of detail leads to generic or disappointing images, so avoid vague inputs like "dog in a park". A specific prompt includes the subject, setting, style, and mood (e.g., "a golden retriever playing fetch in Central Park, on a sunny afternoon, photorealistic style".
+Maintain Focus (Limit Elements)
+Overloading a prompt with too many concepts creates cluttered and poorly rendered images, confusing the AI. Focus on 3-5 main components first, and avoid contradictory instructions.
+Iterate Systematically (Refinement is Key)
+The first output is rarely perfect. Instead of guessing blindly, test one variable at a time (e.g., one lighting keyword or one style descriptor) to isolate the impact of that change. Keep refining until you achieve the desired outcome.
+Write Naturally and Descriptively
+Use clear, conversational language and descriptive sentences, rather than just a comma-separated list of keywords, to produce more evocative and detailed images.
+Focus on Positive Descriptions
+AI models generally respond better to descriptions of what you do want, rather than listing exclusions. Use negative prompts strategically for flaws, but lead with positive detail.
+2. Prompt Structure and Syntax
+A proven structure ensures that all necessary visual and technical elements are communicated clearly to the AI.
+Standard Prompt Structure
+A comprehensive prompt typically follows this structure: [Subject] + [Action/Pose] + [Setting] + [Style] + [Technical Specs] + [Quality Modifiers].
+1. Subject (Who/What): The main focus, defined specifically (e.g., "35-year-old Asian businesswoman" instead of "A person").
+2. Action/Pose: What the subject is doing (e.g., "sitting confidently at desk" or "looking directly at camera with slight smile").
+3. Setting/Context: The environment or background (e.g., "in bright modern office with glass walls" or "against clean white background").
+4. Style/Mood: The overall aesthetic and emotional feeling (e.g., "corporate professional style, warm and approachable mood").
+5. Technical Specs: Camera details, lighting, and resolution (e.g., "shot with 85mm portrait lens, shallow depth of field, high resolution").
+Keyword Ordering and Weight/Emphasis Techniques
+The AI assigns weight to tokens (words), meaning the position of a word and its assigned weight influence the output strongly.
+• Keyword Ordering: Place the most important elements first in the prompt, as the information closer to the start of the prompt has a stronger effect.
+• Weight Modifiers (Stable Diffusion): Use parentheses () and numeric values to emphasize elements.
+    ◦ (word): Increases its influence.
+    ◦ (word:1.3): Values above 1.0 increase emphasis (e.g., (golden sunset:1.5)), while values below 1.0 reduce emphasis (e.g., (distant mountains:0.8)).
+• Weight Modifiers (Midjourney): Uses double colons (::) to apply numerical weight (e.g., blue sky::2).
+• Prompt Scheduling (SD): Advanced users can employ prompt scheduling to change the prompt partway through the generation process, useful for blending concepts.
+3. Style and Aesthetic Keywords Library
+Defining a style or aesthetic prevents generic results and ensures the image has a clear visual tone and emotional impact.
+Category
+Purpose & Example Keywords
+Source
+Style/Art Movement
+Defines the artistic approach or period: photorealistic, cyberpunk digital art, impressionist, vintage 1950s photo, Art Deco.
+Medium
+Specifies the characteristics of traditional art: oil painting, watercolor painting, charcoal, digital art, illustration.
+Material
+Used to create surface textures or whimsical elements: porcelain, ceramic, crystals, wood, metal, made of light.
+Lighting
+Essential for depth, mood, and impact: golden hour lighting, dramatic shadows, soft studio lighting, backlighting, god rays, blue hour.
+Color and Palette
+Controls emotional tone: warm color palette, cool blue tones, monochromatic, sepia, pastel neon, vibrant.
+Quality Tags
+Terms used to boost detail and precision: masterpiece, best quality, high resolution, 4K quality, insanely detailed, sharp focus.
+4. Technical Parameters
+Technical parameters allow users to control the output size, composition, quality, and iteration process.
+Parameter
+Function and Syntax
+Detail
+Source
+Aspect Ratios (AR)
+Defines the image dimensions (width:height). Syntax: --ar [width]:[height].
+Examples include 16:9 (landscape), 4:5 (portrait/LinkedIn), 1:1 (square), and 9:16 (vertical/mobile). The ratio should match the final output intended.
+Negative Prompts
+Explicitly lists what the AI should exclude.
+Essential for removing flaws like blurry, low quality, deformed, extra limbs, watermark, text. In Midjourney, use --no; in Stable Diffusion, use the dedicated box or --neg.
+Seed Control
+Sets the starting point for the generation algorithm, ensuring the model follows a similar creative path.
+Reusing a seed is critical for creating consistent images across iterative changes. Syntax: --seed [number].
+CFG/Guidance Scale (Stable Diffusion)
+Controls the strictness of adherence to the text prompt.
+Recommended value is 7-12 for balance; 12-16 for highly detailed images. Too high a value risks lower quality.
+Stylization (S) (Midjourney)
+Controls the degree to which the AI applies its default aesthetic.
+Use --s followed by a number to adjust the model's creative bias.
+Other Features
+Upscaling increases resolution (e.g., for print). Inpainting allows tweaking specific areas, and outpainting extends the image borders.
+5. Character and Scene Consistency Techniques
+Consistency is difficult for AI, particularly regarding human anatomy and maintaining a character's likeness across different shots.
+Maintaining Likeness and Avoiding Flaws
+• Human Anatomy Correction: AI frequently struggles with realistic hands, faces, and limbs. To minimize errors, limit the number of people in the frame, and clearly describe poses and expressions.
+• Targeted Negative Prompts: Use extensive negative prompts to specifically counter anatomical flaws, such as: extra limbs, extra fingers, poorly drawn face, asymmetrical features, distorted eyes, bad anatomy.
+• Seed Reuse: The most practical way to maintain a character's appearance while adjusting the scene (e.g., changing location or lighting) is by reusing the successful seed value from the initial generation.
+• Advanced Training (Stable Diffusion): For professional consistency, methods such as Textual Inversion Embeddings (TIs) involve training the model on a dataset of images to learn a specific character's "look," allowing that look to be called with a simple keyword in subsequent prompts. This can also be achieved using LoRAs.
+• ControlNet: This tool, often used with Stable Diffusion, helps enforce compositional consistency across images by constraining the pose or layout.
+6. Commercial and Advertising-Specific Prompting
+AI is leveraged in advertising for rapid product prototyping, e-commerce, and personalized marketing visuals.
+Writing Ad-Ready Prompts
+1. Specify Commercial Intent: Use keywords indicating the professional, high-quality intent: "Commercial photography," "product photography," "e-commerce listing," "studio lighting," "sharp focus," and "packshot".
+2. Focus on Light and Background: Commercial images require professional studio lighting and clean backgrounds (e.g., a pure white background). Use negative prompts to eliminate clutter and unwanted shadows.
+3. Choose Precise Shot Types: Use industry-relevant framing such as Close-up / Macro Photography to highlight product texture, Eye-level shots, or Top Down / High-Level View.
+4. Handling Text and Logos (The Major Challenge): AI generators typically struggle to render legible text or brand logos accurately.
+    ◦ Best Practice: Generate the image without text, and add typography later using graphic design software like Canva or Photoshop.
+    ◦ Exception (DALL-E 3): DALL-E 3, particularly through ChatGPT, demonstrates superior text rendering compared to other models like Midjourney.
+    ◦ Midjourney Text Attempt: If attempting to generate text in Midjourney, use specific formulas and include the instruction: spell text correctly and clear.
+5. Advertising Framework (ABCDs): Commercial creative should align with the principles of effective advertising:
+    ◦ Attract: Draw attention immediately.
+    ◦ Brand: Integrate the brand naturally, ideally within the first five seconds for optimal ad recall. Show the product in natural usage rather than relying only on logos.
+    ◦ Connect: Build emotional resonance.
+    ◦ Direct: Use a clear Call to Action (CTA), which drives brand lift even if the viewer takes no immediate action.
